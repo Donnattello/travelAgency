@@ -1,0 +1,60 @@
+﻿@page
+@using travelAgency.Model;
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="fist-scene">
+    <div class="first-text">
+        <h1>Discover</h1>
+        <p>Come and discover the beautiful <br>fjords, mountains and cities</p>
+    </div>
+    <img class="first-img" src="~/images/first.png" alt="foto of mountain">
+</div>
+
+<section class="new-section">
+        <h2>[New]</h2>
+        <div class="image-grid">
+            @if (Model.ListTours.Count() > 0)
+            {
+                <div class="new-items">
+                    @foreach (var item in Model.ListTours)
+                    {
+                        <div class="new-item">
+                            <h3>@Html.DisplayFor(m=> item.Country)</h3>
+                            <h4>@Html.DisplayFor(m=> item.Duration) days</h4>       
+                            <h4>@Html.DisplayFor(m=> item.AmountOfPeople) tourists & 1 guide</h4>
+                            <img src="images/@Html.DisplayFor(m=> item.Imgg)" alt="Image of @item.Country">
+                                            <div class="button"><a asp-page="/Tours/TourPage" asp-route-id="@item.Id">see more >></a></div>
+                        </div>
+                    }
+                </div>
+            }
+            else
+            {
+                <p>No tours available.</p>
+            }
+        </div>
+</section>
+<div class="button-left">
+ <div class="button seeall"><a asp-page="/travel/tours">see all tours >></a></div>
+</div>
+    <div class="statistic-items">
+        <div class="statistic-item">
+            <h5>96</h5>
+            <p>people<br>traveled with us</p>
+        </div>
+        <div class="statistic-item">
+            <p>tours in <br>countries</p>
+            <h5>@Model.ALlTours.Count()</h5>
+        </div>
+        <div class="statistic-item">
+            <h5>7</h5>
+            <p>years<br>of experience</p>
+        </div>
+    </div>
+
+<div class="gallery">
+
+</div>

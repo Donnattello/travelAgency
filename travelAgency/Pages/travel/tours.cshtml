@@ -1,0 +1,22 @@
+﻿@page
+@model travelAgency.Pages.travel.IndexModel
+@{
+	ViewData["Title"] = "tours";
+}
+
+<div>
+    <h3>tours</h3>
+</div>
+
+<section class="new-items addition">
+    @foreach (var item in Model.AllTours)
+    {
+     <div class="catalog-item"> 
+         <img class="catalog-img col-3" src="/images/@Html.DisplayFor(m=> item.Imgg)" alt="Image of @item.Country">
+         <h6>@Html.DisplayFor(m=> item.Country)</h6>
+         <h4>@Html.DisplayFor(m=> item.Duration) days</h4>       
+         <h4>@Html.DisplayFor(m=> item.Id) tourists & 1 guide</h4>
+             <div class="seeall"><a asp-page="/Tours/TourPage" asp-route-id="@item.Id">see more >></a></div>
+    </div>
+    }
+    </section>
