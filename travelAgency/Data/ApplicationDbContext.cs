@@ -13,5 +13,9 @@ namespace travelAgency.Data
         {
         }
         public DbSet<days> Days { get; set; }
+		public DbSet<booking> BookT { get; set; }
+		public DbSet<Users> User { get; set; }
+
+        
     }
 }

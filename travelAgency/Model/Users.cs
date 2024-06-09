@@ -1,4 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Humanizer;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using NuGet.ContentModel;
+using System.ComponentModel.DataAnnotations;
+using System.Configuration;
+using System.Data;
 using System.Xml.Linq;
 
 namespace travelAgency.Model
@@ -9,12 +14,26 @@ namespace travelAgency.Model
         public int Id { get; set; }
 
         [Required(ErrorMessage = "field is required!")]
-        public string Name { get; set; }
-        public string LastName { get; set; }
-        public string Tel { get; set; }
-        public string Email { get; set; }
-        public string sex { get; set; }
-        public int age { get; set; }
-        public string Status { get; set; }
+        public string UName { get; set; }
+
+        public string ULastName { get; set; }
+
+        public string UTel { get; set; }
+
+        [Required(ErrorMessage = "Field is required!")]
+        [EmailAddress]
+        public string UEmail { get; set; }
+
+        [Required(ErrorMessage = "Field is required!")]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+        public string UPassword { get; set; }
+
+		public string Usex { get; set; }
+
+    
+       
+
+        public string URole { get; set; }
     }
 }
+

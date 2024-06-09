@@ -1,0 +1,82 @@
+﻿@page
+@model travelAgency.Pages.admin.adminkaModel
+@{
+}
+@*<div>
+    <h3>Reservations</h3>
+</div>
+
+<section class="new-items addition">
+    @foreach (var item in Model.AllReservations)
+    {
+         <div class="catalog-item"> 
+             <div class="seeall"><a asp-page="/Tours/TourPage" asp-route-id="@item.NameTour">see more >></a></div>
+             <h4>@Html.DisplayFor(m=> item.Name)</h4>
+             <h4>@Html.DisplayFor(m=> item.LastName)</h4>       
+             <h4>@Html.DisplayFor(m=> item.Tel) </h4>
+             <h4>@Html.DisplayFor(m=> item.Email) </h4>
+             <h4>@Html.DisplayFor(m=> item.sex) </h4>
+             <h4>@Html.DisplayFor(m=> item.age) </h4>
+             <h4>@Html.DisplayFor(m=> item.Status) </h4>
+             <div class="seeall">
+                 <button>Accept</button>
+             </div>        
+        </div>
+    }
+    </section>
+*@
+<h2>Booking List</h2>
+@if (Model.AllReservations.Count() > 0)
+{
+<table>
+    <thead>
+        <tr>
+            <th>Country</th>
+            <th>Available</th>
+            <th>Name</th>
+            <th>LastName</th>
+            <th>Tel</th>
+            <th>Email</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var booking in Model.AllReservations)
+        {
+                <tr>
+                    <td>@booking.Country</td>
+                    <td>@booking.available</td>
+                    <td>@booking.Name</td>
+                    <td>@booking.LastName</td>
+                    <td>@booking.Tel</td>
+                    <td>@booking.Email</td>
+                    <td>@booking.Status</td>
+                    <td>
+                        @if (booking.available == 0)
+                        {
+                            <button disabled>Accept</button>
+                        }
+                        else
+                        {
+                            <form method="post" asp-page-handler="Accept" asp-route-id="@booking.Id">
+                                <button type="submit">Accept</button>
+                            </form>
+                        }
+                           
+                            <form method="post" asp-page-handler="Reject" asp-route-id="@booking.Id">
+                                <button type="submit">Reject</button>
+                        </form>
+   
+                    </td>
+                </tr>
+        }
+    </tbody>
+</table>
+}
+else
+{
+        <p>
+            No books available.
+        </p>
+}

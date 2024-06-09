@@ -93,7 +93,11 @@ body {
 .seeall a{
     color:white !important;
 }
-    .statistic-items {
+.seeall input {
+    color: white !important;
+}
+
+.statistic-items {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -180,3 +184,88 @@ body {
     margin-top: 50px; 
     margin-bottom:50px;
 }
+
+/*-----book--------*/
+.bookt {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+.bookf img {
+    z-index: 1;
+    height: 80vh;
+    width: 50%;
+    position: absolute;
+    object-fit: cover;
+}
+.bookf p {
+    z-index: 20;
+    position: relative;
+    margin-top: 100px;
+    margin-left: 40px;
+ 
+}
+.bookf {
+    width: 50%;
+}
+.books {
+    position: relative;
+    z-index:1;
+    width:50%;
+    margin-left:30px;
+
+}
+.two-col {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.inputf
+{
+    width:20vw;
+}
+.sendt {
+    margin-top: 40px;
+    align-content: center;
+}
+
+
+/*-----admin-------*/
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+td {
+    background-color: #fff;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+thead th, tbody td {
+    width: calc(100% / 6); /* Adjust the number 6 to match the number of columns */
+}
+
+button {
+    padding: 6px 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+    button:hover {
+        background-color: #45a049;
+    }

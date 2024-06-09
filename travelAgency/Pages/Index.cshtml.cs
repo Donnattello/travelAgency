@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using travelAgency.Data;
@@ -32,5 +33,7 @@ namespace travelAgency.Pages
                 .ToListAsync();
            
         }
+
+        
     }
 }

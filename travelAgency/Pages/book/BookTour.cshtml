@@ -5,5 +5,87 @@
 }
 
 <div class="bookt">
+	<div class="bookf">
+		<img src="/images/book.png" alt="picture of road">
+		<p>Join to more than 100 people who<br>have already traveled with us</p>
+	</div>
+	<div class="books">
+		<h3>Book your dream trip</h3>
+		 <form method="post">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
+			<label for="tourSelect">Tour</label>
+			<select id="tourSelect" name="NameTour" asp-for="Book.NameTour" class="form-control" asp-items="Model.Tours">
+			<option value="">-- Select a Tour --</option>
+				@*@foreach (var tour in Model.Tours)
+				{
+						<option value="@tour.Value">@tour.Text</option>
+				}*@
+			</select>
+			<div class="two-col">
+				<div>
+					<div>
+							<div class="">
+							   <label>Name</label>
+							</div>
+							<div class="inputf">
+								<input asp-for="Book.Name" class="form-control" />
+							</div>
+					</div>	
+					<div>
+							<div class="">
+							   <label>Last Name</label>
+							</div>
+							<div class="inputf">
+								<input asp-for="Book.LastName" class="form-control" />
+							</div>
+					</div>	
+					<div>
+							<div class="">
+							   <label>Telephone number<label>
+							</div>
+							<div class="inputf">
+								<input asp-for="Book.Tel" class="form-control" />
+							</div>
+					</div>	
+				</div>
+				<div>
+					<div>
+							<div class="">
+							   <label>Email<label>
+							</div>
+							<div class="inputf">
+								<input asp-for="Book.Email" class="form-control" />
+							</div>
+					</div>
+					<div>
+							<div class="">
+							   <label>Age<label>
+							</div>
+							<div class="inputf">
+								<input asp-for="Book.age" class="form-control" />
+							</div>
+					</div>
+					<div>
+						<div >
+							<label>Gender</label>
+						</div>
+						<div class="col-sm-4">
+							<div class="form-check">
+								<input class="form-check-input" type="radio" asp-for="Book.sex" value="Man" id="sexMan">
+								<label class="form-check-label" for="sexMan">Man</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" asp-for="Book.sex" value="Woman" id="sexWoman">
+								<label class="form-check-label" for="sexWoman">Woman</label>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			<input type="submit" value="send" class="seeall sendt"/>
+
+		 </form>
+	</div>
 </div>

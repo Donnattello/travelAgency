@@ -1,0 +1,40 @@
+﻿@page
+@model IndexModel
+@using travelAgency.Model
+@inject UserManager<IdentityUser> UserManager
+@{
+    ViewData["Title"] = "Profile";
+    ViewData["ActivePage"] = ManageNavPages.Index;
+}
+
+<h3>@ViewData["Title"]</h3>
+<partial name="_StatusMessage" for="StatusMessage" />
+<div class="row">
+    <div class="col-md-6">
+        <form id="profile-form" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-floating">
+                <input asp-for="Username" class="form-control" disabled />
+                <label asp-for="Username" class="form-label"></label>
+            </div>
+            
+            <button id="update-profile-button" type="submit" class="w-100 btn btn-lg btn-primary">Save</button>
+        </form>
+        @{
+            var user = UserManager.GetUserAsync(User).Result;
+            var userName = user?.UserName;
+            var isAdmin = Model.IsUserAdmin(userName);
+        }
+
+        @if (isAdmin)
+        {
+             <div class="w-100 btn btn-lg btn-primary" ><a style="color:white;margin-top:10px;" asp-page="/admin/adminka">Admin Page</a></div>
+        }
+    </div>
+</div>
+
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
